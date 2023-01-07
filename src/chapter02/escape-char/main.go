@@ -16,4 +16,11 @@ func main() {
 	fmt.Println("second\rfirst")
 
 	fmt.Println("姓名\t年齡\t籍貫\t住址\njohn\t12\t台灣\t台北")
+
+	// This is single line comment.
+	/*
+
+		This is multiple lines comment.
+
+	*/
 }
