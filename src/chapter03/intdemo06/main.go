@@ -36,5 +36,11 @@ func main() {
 	//如何在程序中查看某個變數的佔用字節大小和數據類型
 	var n2 int64 = 10
 	//unsafe.Sizeof() 是unsafe包裡面提供的函數，可以返回變數佔用的字節數
-	fmt.Printf("n2的類型是%T，n2佔用的字節數是%d", n2, unsafe.Sizeof(n2))
+	fmt.Printf("n2的類型是%T，n2佔用的字節數是%d \n", n2, unsafe.Sizeof(n2))
+
+	//Golang程序中整形變數在使用時，遵守保小不保大的原則
+	//即：在保證程序正確運行下，盡量使用佔用空間小的數據類型，ex.年齡
+	var age byte = 90
+	fmt.Println("年齡是", age)
+
 }
