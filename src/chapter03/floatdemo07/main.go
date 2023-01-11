@@ -18,5 +18,10 @@ func main() {
 
 	//Golang浮點型默認聲明為float64類型
 	var num5 = 1.1
-	fmt.Printf("num5的類型是%T", num5)
+	fmt.Printf("num5的類型是%T \n", num5)
+
+	//十進制數形式：如5.12, .512(必須有小數點)
+	num6 := 5.12
+	num7 := .512 //0.512
+	fmt.Println("num6=", num6, "num7=", num7)
 }
