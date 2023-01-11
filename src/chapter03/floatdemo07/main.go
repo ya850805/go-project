@@ -15,4 +15,8 @@ func main() {
 	var num3 float32 = -123.0000901
 	var num4 float64 = -123.0000901
 	fmt.Println("num3=", num3, "num4=", num4)
+
+	//Golang浮點型默認聲明為float64類型
+	var num5 = 1.1
+	fmt.Printf("num5的類型是%T", num5)
 }
