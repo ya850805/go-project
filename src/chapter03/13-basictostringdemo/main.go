@@ -45,4 +45,9 @@ func main() {
 
 	str2 = strconv.FormatBool(b2)
 	fmt.Printf("str2 type is %T, str2=%q \n", str2, str2)
+
+	//strconv包中有一個函數Itoa，將一個int轉換成string
+	var num5 int = 999
+	str2 = strconv.Itoa(num5)
+	fmt.Printf("str2 type is %T, str2=%q \n", str2, str2)
 }
