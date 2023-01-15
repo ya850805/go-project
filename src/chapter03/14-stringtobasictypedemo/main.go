@@ -22,4 +22,13 @@ func main() {
 	var str3 string = "123.456"
 	f1, _ := strconv.ParseFloat(str3, 64)
 	fmt.Printf("f1 type is %T, n1=%v \n", f1, f1)
+
+	//注意事項，轉成int失敗時默認會轉成0，轉成bool失敗時默認會轉成false
+	var str4 string = "hello"
+	n3, _ := strconv.ParseInt(str4, 10, 64)
+	fmt.Printf("n3 type is %T, n3=%v \n", n3, n3)
+
+	var str5 string = "hello"
+	b1, _ := strconv.ParseBool(str5)
+	fmt.Printf("b1 type is %T, b1=%v \n", b1, b1)
 }
