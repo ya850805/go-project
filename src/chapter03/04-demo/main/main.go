@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	//為了使用utils.go文件的內容，我們需要先引入該包
+	"go-project/src/chapter03/04-demo/model"
+)
 
 // 變數使用的注意事項
 func main() {
@@ -15,4 +19,7 @@ func main() {
 	var j = 99
 	//var j = 100 //報錯，j已經在前方定義過
 	fmt.Println("j=", j)
+
+	//使用utils.go的HeroName，包名.標識符
+	fmt.Println("hero name=", model.HeroName)
 }
