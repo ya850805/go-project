@@ -23,4 +23,21 @@ func main() {
 	//複合賦值的操作
 	a += 17 // 等價a = a + 17
 	fmt.Println("a=", a)
+
+	var c int
+	c = a + 3 //賦值的執行順序是從右向左
+	fmt.Println("c=", c)
+
+	//賦值運算符的**左邊只能是變數**，右邊可以是變數、表達式、常數
+	//表達式：任何有值的都可以看做表達式
+	var d int
+	d = a
+	d = 8 + 2*8
+	d = 890
+	d = test()
+	fmt.Println("d=", d)
+}
+
+func test() int {
+	return 90
 }
