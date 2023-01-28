@@ -36,6 +36,15 @@ func main() {
 	//default:
 	//	fmt.Println("沒有匹配")
 	//}
+
+	var i1 int32 = 20
+	var i2 int32 = 15
+	switch i1 {
+	case i2, 20: //case後面可以有多個表達式
+		println("ok!")
+	default:
+		fmt.Println("沒有匹配")
+	}
 }
 
 func test(b byte) byte {
