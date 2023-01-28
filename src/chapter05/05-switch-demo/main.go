@@ -26,6 +26,16 @@ func main() {
 	default:
 		fmt.Println("輸出有誤")
 	}
+
+	//報錯，因為`n1`和`n2`數據類型不一致
+	//var n1 int32 = 20
+	//var n2 int64 = 20
+	//switch n1 {
+	//case n2:
+	//	fmt.Println("ok1")
+	//default:
+	//	fmt.Println("沒有匹配")
+	//}
 }
 
 func test(b byte) byte {
