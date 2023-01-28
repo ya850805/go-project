@@ -7,6 +7,7 @@ func main() {
 	fmt.Print("請輸入一個字符a,b,c,d,e,f,g：")
 	fmt.Scanf("%c", &day)
 
+	//switch test(day) { // fr
 	switch day {
 	case 'a':
 		fmt.Println("星期一")
@@ -25,4 +26,8 @@ func main() {
 	default:
 		fmt.Println("輸出有誤")
 	}
+}
+
+func test(b byte) byte {
+	return b + 1
 }
