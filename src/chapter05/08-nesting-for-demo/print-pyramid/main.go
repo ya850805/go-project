@@ -53,4 +53,36 @@ func main() {
 
 		fmt.Println()
 	}
+
+	fmt.Println("======================================================")
+
+	//空心菱形
+	for i := 1; i <= layers; i++ {
+		for j := 1; j <= layers-i; j++ {
+			fmt.Print(" ")
+		}
+
+		for k := 1; k <= i*2-1; k++ {
+			if k == 1 || k == i*2-1 {
+				fmt.Print("*")
+			} else {
+				fmt.Print(" ")
+			}
+		}
+		fmt.Println()
+	}
+	for i := layers - 1; i >= 1; i-- {
+		for j := layers - i; j >= 1; j-- {
+			fmt.Print(" ")
+		}
+
+		for k := i*2 - 1; k >= 1; k-- {
+			if k == 1 || k == i*2-1 {
+				fmt.Print("*")
+			} else {
+				fmt.Print(" ")
+			}
+		}
+		fmt.Println()
+	}
 }
