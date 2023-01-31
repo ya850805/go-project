@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"go-project/src/chapter06/01-function-demo/utils"
+)
 
 // golang中的函數
 func main() {
@@ -16,27 +19,7 @@ func main() {
 	fmt.Scanln(&operator)
 
 	//cal()函數可以使用多次，利於代碼重複使用
-	res := cal(num1, num2, operator)
+	res := utils.Cal(num1, num2, operator)
 
 	fmt.Println("res=", res)
-}
-
-// 將功能放到一個函數中，然後在需要使用時調用即可
-func cal(num1 float64, num2 float64, operator string) float64 {
-	var res float64
-
-	switch operator {
-	case "+":
-		res = num1 + num2
-	case "-":
-		res = num1 - num2
-	case "*":
-		res = num1 * num2
-	case "/":
-		res = num1 / num2
-	default:
-		fmt.Println("操作錯誤")
-	}
-
-	return res
 }
