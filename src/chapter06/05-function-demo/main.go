@@ -18,6 +18,13 @@ func myFunc2(funvar myFunType, num1 int, num2 int) int {
 	return funvar(num1, num2)
 }
 
+// 支持對函數返回值命名
+func getSumAndSub(n1 int, n2 int) (sum int, sub int) {
+	sub = n1 - n2
+	sum = n1 + n2
+	return
+}
+
 func main() {
 	//在Go中，**函數也是一種數據類型**，可以賦值給一個變數，則該變數就是一個函數類型的變數了。通過該變數可以對函數調用
 	a := getSum
@@ -38,4 +45,7 @@ func main() {
 	fmt.Printf("num1=%v, num1類型是: %T \n", num1, num1)
 	fmt.Printf("num2=%v, num2類型是: %T \n", num2, num2)
 
+	//
+	sum, sub := getSumAndSub(1, 2)
+	fmt.Println("sum=", sum, "sub=", sub)
 }
