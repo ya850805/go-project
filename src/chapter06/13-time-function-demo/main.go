@@ -31,4 +31,20 @@ func main() {
 	fmt.Println(now.Format("15:04:06"))
 	fmt.Println("年：", now.Format("2006"))
 
+	//每隔1秒鐘打印一個數字
+	for i := 1; i <= 5; i++ {
+		time.Sleep(time.Second)
+		fmt.Println("i=", i)
+	}
+	//每隔0.1秒鐘打印一個數字
+	for i := 1; i <= 5; i++ {
+		time.Sleep(time.Second / 10)
+		//time.Sleep(time.Millisecond * 100)
+		fmt.Println("i=", i)
+	}
+
+	//獲取當前unix時間戳和unixnano時間戳
+	fmt.Println("unix", now.Unix())
+	fmt.Println("unixnano", now.UnixNano())
+
 }
