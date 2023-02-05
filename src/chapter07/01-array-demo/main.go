@@ -37,4 +37,18 @@ func main() {
 	//4. 求出平均體重
 	avgWeight2 := fmt.Sprintf("%.2f", totalWeight2/float64(len(hens)))
 	fmt.Printf("totalWeight2=%v, avgWeight2=%v \n", totalWeight2, avgWeight2)
+
+	//四種初始化陣列的方式
+	//1.
+	var numArr01 [3]int = [3]int{1, 2, 3}
+	fmt.Println("numArr01=", numArr01)
+	//2.
+	var numArr02 = [3]int{5, 6, 7}
+	fmt.Println("numArr02=", numArr02)
+	//3. [...]是固定寫法
+	var numArr03 = [...]int{8, 9, 10}
+	fmt.Println("numArr03=", numArr03)
+	//4. 給定下標
+	var numArr04 = [...]int{1: 12, 0: 11, 2: 13}
+	fmt.Println("numArr04=", numArr04)
 }
