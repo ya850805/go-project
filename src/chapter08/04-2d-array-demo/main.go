@@ -19,4 +19,23 @@ func main() {
 		}
 		fmt.Println()
 	}
+
+	fmt.Println()
+
+	//二維陣列使用方式1：先聲明/定義，再賦值
+	var arr2 [2][3]int
+	arr2[1][1] = 10
+	fmt.Println("arr2=", arr2)
+
+	fmt.Printf("arr2[0]的地址：%p \n", &arr2[0])
+	fmt.Printf("arr2[1]的地址：%p \n", &arr2[1])
+
+	fmt.Printf("arr2[0][0]的地址：%p \n", &arr2[0][0])
+	fmt.Printf("arr2[1][0]的地址：%p \n", &arr2[1][0])
+
+	fmt.Println()
+
+	//二維陣列使用方式2：直接初始化
+	arr3 := [2][3]int{{1, 2, 3}, {4, 5, 6}}
+	fmt.Println("arr3=", arr3)
 }
