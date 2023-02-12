@@ -34,6 +34,8 @@ func main() {
 	cat1.Name = "小白"
 	cat1.Age = 3
 	cat1.Color = "白色"
+	fmt.Printf("cat1的地址是：%p \n", &cat1)
+
 	fmt.Println("cat1=", cat1)
 	fmt.Println("cat1 name=", cat1.Name)
 	fmt.Println("cat1 age=", cat1.Age)
