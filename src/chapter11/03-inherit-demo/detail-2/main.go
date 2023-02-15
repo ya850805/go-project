@@ -41,6 +41,16 @@ type TV2 struct {
 	*Brand
 }
 
+type Monster struct {
+	Name string
+	Age  int
+}
+
+type E struct {
+	Monster
+	int
+}
+
 func main() {
 	var c C
 
@@ -59,6 +69,8 @@ func main() {
 		Brand: Brand{"品牌1", "地址..."},
 	}
 	fmt.Println("tv=", tv)
+	fmt.Println("tv.Goods.Name=", tv.Goods.Name)
+	fmt.Println("Price=", tv.Price)
 
 	tv2 := TV2{
 		Goods: &Goods{"電視機002", 7000.99},
@@ -66,4 +78,11 @@ func main() {
 	}
 	fmt.Println(*tv2.Goods)
 	fmt.Println(*tv2.Brand)
+
+	//匿名字段是基本數據類型的使用
+	var e E
+	e.Name = "Name1"
+	e.Age = 300
+	e.int = 20
+	fmt.Println("e=", e)
 }
