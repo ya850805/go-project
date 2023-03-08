@@ -7,7 +7,7 @@ import (
 )
 
 type customerView struct {
-	key  string //接收用戶選項輸入
+	key  string //接收用戶輸入
 	loop bool   //表示是否循環顯示主菜單
 
 	customerService *service.CustomerService
@@ -93,6 +93,23 @@ func (cv *customerView) delete() {
 	}
 }
 
+// 退出軟體
+func (cv *customerView) exit() {
+	for {
+		fmt.Print("確認是否退出(y/n)：")
+		fmt.Scanln(&cv.key)
+		if cv.key == "y" || cv.key == "Y" || cv.key == "n" || cv.key == "N" {
+			break
+		}
+		fmt.Println("輸入有誤請重新輸入")
+	}
+
+	if cv.key == "y" || cv.key == "Y" {
+		cv.loop = false
+		fmt.Println("退出客戶管理系統")
+	}
+}
+
 // 顯示主菜單
 func (cv *customerView) mainMenu() {
 	for cv.loop {
@@ -115,8 +132,7 @@ func (cv *customerView) mainMenu() {
 		case "4":
 			cv.list()
 		case "5":
-			cv.loop = false
-			fmt.Println("退出客戶管理系統")
+			cv.exit()
 		default:
 			fmt.Println("輸入錯誤，請重新輸入")
 		}
