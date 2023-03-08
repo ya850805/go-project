@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"go-project/src/chapter13/model"
 	"go-project/src/chapter13/service"
 )
 
@@ -25,6 +26,40 @@ func (cv *customerView) list() {
 	fmt.Println("----------客戶列表完成----------")
 }
 
+// 得到用戶的輸入信息，構建新的客戶並完成添加
+func (cv *customerView) add() {
+	fmt.Println("----------添加客戶----------")
+	fmt.Print("姓名：")
+	name := ""
+	fmt.Scanln(&name)
+
+	fmt.Print("性別：")
+	gender := ""
+	fmt.Scanln(&gender)
+
+	fmt.Print("年齡：")
+	age := 0
+	fmt.Scanln(&age)
+
+	fmt.Print("電話：")
+	phone := ""
+	fmt.Scanln(&phone)
+
+	fmt.Print("電郵：")
+	email := ""
+	fmt.Scanln(&email)
+
+	//構建一個Customer
+	//注意：id號沒有讓用戶輸入，id是唯一的，需要系統分配
+	customer := model.NewCustomer2(name, gender, age, phone, email)
+
+	if cv.customerService.Add(customer) {
+		fmt.Println("----------添加完成----------")
+	} else {
+		fmt.Println("----------添加失敗----------")
+	}
+}
+
 // 顯示主菜單
 func (cv *customerView) mainMenu() {
 	for cv.loop {
@@ -39,7 +74,7 @@ func (cv *customerView) mainMenu() {
 
 		switch cv.key {
 		case "1":
-			fmt.Println("添加客戶")
+			cv.add()
 		case "2":
 			fmt.Println("修改客戶")
 		case "3":
