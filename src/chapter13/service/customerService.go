@@ -51,6 +51,32 @@ func (cs *CustomerService) Delete(id int) bool {
 	}
 }
 
+// Update 修改客戶信息
+func (cs *CustomerService) Update(updateCustomer model.Customer) bool {
+	index := cs.FindById(updateCustomer.Id)
+	if index == -1 {
+		return false
+	} else {
+		customer := &cs.customers[index]
+		if updateCustomer.Name != "" {
+			(*customer).Name = updateCustomer.Name
+		}
+		if updateCustomer.Gender != "" {
+			(*customer).Gender = updateCustomer.Gender
+		}
+		if updateCustomer.Age != 0 {
+			(*customer).Age = updateCustomer.Age
+		}
+		if updateCustomer.Phone != "" {
+			(*customer).Phone = updateCustomer.Phone
+		}
+		if updateCustomer.Email != "" {
+			(*customer).Email = updateCustomer.Email
+		}
+		return true
+	}
+}
+
 // FindById 根據id查找客戶在切片中對應下標，如果沒有該客戶，返回-1
 func (cs *CustomerService) FindById(id int) int {
 	index := -1

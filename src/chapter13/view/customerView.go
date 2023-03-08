@@ -93,6 +93,42 @@ func (cv *customerView) delete() {
 	}
 }
 
+// 修改客戶
+func (cv *customerView) update() {
+	fmt.Println("----------修改客戶----------")
+	fmt.Print("請輸入要修改客戶的編號(-1退出)：")
+	id := -1
+	fmt.Scanln(&id)
+
+	if id == -1 {
+		return
+	}
+
+	index := cv.customerService.FindById(id)
+	if index == -1 {
+		fmt.Println("----------修改失敗，輸入的id號不存在----------")
+		return
+	}
+
+	customer := cv.customerService.List()[index]
+	fmt.Printf("姓名(%v)：", customer.Name)
+	fmt.Scanln(&customer.Name)
+	fmt.Printf("性別(%v)：", customer.Gender)
+	fmt.Scanln(&customer.Gender)
+	fmt.Printf("年齡(%v)：", customer.Age)
+	fmt.Scanln(&customer.Age)
+	fmt.Printf("電話(%v)：", customer.Phone)
+	fmt.Scanln(&customer.Phone)
+	fmt.Printf("郵箱(%v)：", customer.Email)
+	fmt.Scanln(&customer.Email)
+
+	if cv.customerService.Update(customer) {
+		fmt.Println("----------修改完成----------")
+	} else {
+		fmt.Println("----------修改失敗，輸入的id號不存在----------")
+	}
+}
+
 // 退出軟體
 func (cv *customerView) exit() {
 	for {
@@ -126,7 +162,7 @@ func (cv *customerView) mainMenu() {
 		case "1":
 			cv.add()
 		case "2":
-			fmt.Println("修改客戶")
+			cv.update()
 		case "3":
 			cv.delete()
 		case "4":
