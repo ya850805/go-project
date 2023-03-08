@@ -60,6 +60,39 @@ func (cv *customerView) add() {
 	}
 }
 
+// 得到用戶輸入的id，刪除該id對應的客戶
+func (cv *customerView) delete() {
+	fmt.Println("----------刪除客戶----------")
+	fmt.Print("請輸入要刪除的客戶編號(-1退出)：")
+	id := -1
+	fmt.Scanln(&id)
+	if id == -1 {
+		return //放棄刪除操作
+	}
+
+	choice := ""
+	for {
+		fmt.Print("確認是否刪除(y/n)：")
+		fmt.Scanln(&choice)
+		if choice != "y" && choice != "Y" && choice != "n" && choice != "N" {
+			fmt.Println("輸入錯誤，請重新數入")
+		} else {
+			break
+		}
+	}
+
+	if choice == "y" || choice == "Y" {
+		//調用customerService的Delete方法
+		if cv.customerService.Delete(id) {
+			fmt.Println("----------刪除完成----------")
+		} else {
+			fmt.Println("----------刪除失敗，輸入的id號不存在----------")
+		}
+	} else {
+		fmt.Println("取消刪除操作")
+	}
+}
+
 // 顯示主菜單
 func (cv *customerView) mainMenu() {
 	for cv.loop {
@@ -78,7 +111,7 @@ func (cv *customerView) mainMenu() {
 		case "2":
 			fmt.Println("修改客戶")
 		case "3":
-			fmt.Println("刪除客戶")
+			cv.delete()
 		case "4":
 			cv.list()
 		case "5":
