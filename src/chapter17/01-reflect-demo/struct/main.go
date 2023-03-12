@@ -32,6 +32,11 @@ func reflectTest01(b interface{}) {
 	if ok {
 		fmt.Printf("stu.Name=%v \n", stu.Name)
 	}
+
+	//4. 獲取reflect.Kind
+	kind1 := rType.Kind()
+	kind2 := rVal.Kind()
+	fmt.Printf("kind=%v kind=%v", kind1, kind2)
 }
 
 func main() {
